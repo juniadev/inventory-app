@@ -8,4 +8,5 @@
     <dimen name="add_product_category_weight">0dp</dimen>
     <dimen name="add_product_category_padding">4dp</dimen>
     <dimen name="detail_category_divider">15dp</dimen>
+    <dimen name="list_item_width">250dp</dimen>
 </resources>

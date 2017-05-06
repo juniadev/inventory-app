@@ -172,8 +172,9 @@ public class AddProductActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_save:
-                saveProduct();
-                finish();
+                if (saveProduct()) {
+                    finish();
+                }
                 return true;
             case android.R.id.home:
                 return navigateToHome();
@@ -202,7 +203,7 @@ public class AddProductActivity extends AppCompatActivity {
         };
     }
 
-    private void saveProduct() {
+    private boolean saveProduct() {
         String name = nameEditText.getText().toString().trim();
         String price = priceEditText.getText().toString().trim();
         String quantity = quantityEditText.getText().toString().trim();
@@ -211,8 +212,9 @@ public class AddProductActivity extends AppCompatActivity {
         // Need to resize so image will fit in SQLite DB (default size for CursorWindow is 2MB).
         byte[] image = ImageUtils.getResizedImageBytes(imageUri, this.getContentResolver());
 
-        if (TextUtils.isEmpty(name) || TextUtils.isEmpty(price)) {
-            return;
+        if (requiredFieldIsEmpty(name, price, quantity, image)) {
+            Toast.makeText(this, getString(R.string.insert_product_missing), Toast.LENGTH_SHORT).show();
+            return false;
         }
 
         ContentValues values = new ContentValues();
@@ -230,5 +232,10 @@ public class AddProductActivity extends AppCompatActivity {
         } else {
             Toast.makeText(this, getString(R.string.insert_product_successful), Toast.LENGTH_SHORT).show();
         }
+        return true;
+    }
+
+    private boolean requiredFieldIsEmpty(String name, String price, String quantity, byte[] image) {
+        return TextUtils.isEmpty(name) || TextUtils.isEmpty(price) || TextUtils.isEmpty(quantity) || image == null;
     }
 }

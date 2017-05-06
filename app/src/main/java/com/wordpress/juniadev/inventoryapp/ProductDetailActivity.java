@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.wordpress.juniadev.inventoryapp.data.ProductContract;
 import com.wordpress.juniadev.inventoryapp.utils.ImageUtils;
+import com.wordpress.juniadev.inventoryapp.utils.ValidatorUtils;
 
 public class ProductDetailActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
@@ -111,6 +112,7 @@ public class ProductDetailActivity extends AppCompatActivity implements LoaderMa
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                supplierTextView = (TextView) findViewById(R.id.display_product_supplier);
                 String supplierEmail = supplierTextView.getText().toString();
                 if (TextUtils.isEmpty(supplierEmail)) {
                     return;
@@ -133,7 +135,7 @@ public class ProductDetailActivity extends AppCompatActivity implements LoaderMa
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (isSaleValid()) {
+                if (ValidatorUtils.isSaleValid(quantity, getApplicationContext())) {
                     int newQuantity = Integer.parseInt(quantity) - 1;
                     ContentValues values = new ContentValues();
                     values.put(ProductContract.ProductEntry.COLUMN_QUANTITY_AVAILABLE, newQuantity);
@@ -154,14 +156,6 @@ public class ProductDetailActivity extends AppCompatActivity implements LoaderMa
                 updateProduct(values);
             }
         });
-    }
-
-    private boolean isSaleValid() {
-        if (TextUtils.isEmpty(quantity) || quantity.equals("0")) {
-            Toast.makeText(this, getString(R.string.product_not_available), Toast.LENGTH_SHORT).show();
-            return false;
-        }
-        return true;
     }
 
     private void setViews() {

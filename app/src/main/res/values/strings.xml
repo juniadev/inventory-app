@@ -17,6 +17,7 @@
     <string name="keep_editing">Keep Editing</string>
     <string name="insert_product_successful">Product saved</string>
     <string name="insert_product_failed">Error saving product</string>
+    <string name="insert_product_missing">Missing required information, please review and try again</string>
     <string name="add_product">Add Product</string>
     <string name="select_image">Select image...</string>
     <string name="please_select_image">Please select an image.</string>
