@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ListView
+        android:id="@+id/products_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- Empty view for the list -->
+    <RelativeLayout
+        android:id="@+id/empty_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <ImageView
+            android:id="@+id/empty_inventory_image"
+            style="@style/EmptyInventoryImage"
+            android:src="@drawable/ic_empty_products" />
+
+        <TextView
+            android:id="@+id/empty_title_text"
+            style="@style/EmptyInventoryTitle"
+            android:text="@string/empty_view_title_text" />
+
+        <TextView
+            android:id="@+id/empty_subtitle_text"
+            style="@style/EmptyInventorySubtitle"
+            android:text="@string/empty_view_subtitle_text" />
+    </RelativeLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        style="@style/AddProductButton"
+        android:src="@drawable/ic_action_add" />
+</RelativeLayout>

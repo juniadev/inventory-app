@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/activity_margin"
+        tools:context=".ProductDetailActivity">
+
+        <LinearLayout
+            android:id="@+id/container_product_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/CategoryStyle"
+                android:text="@string/category_product_info" />
+
+            <LinearLayout style="@style/CategoryFieldsLayout">
+
+                <TextView
+                    android:id="@+id/display_product_name"
+                    style="@style/EditorFieldStyle"
+                    tools:text="Notebook" />
+
+                <TextView
+                    android:id="@+id/display_product_price"
+                    style="@style/EditorFieldStyle"
+                    tools:text="$1294.90" />
+
+                <TextView
+                    android:id="@+id/display_product_quantity"
+                    style="@style/EditorFieldStyle"
+                    tools:text="5 itens available" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View style="@style/EmptyDivider"/>
+
+        <LinearLayout
+            android:id="@+id/container_product_supplier"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/CategoryStyle"
+                android:text="@string/category_product_supplier" />
+
+            <LinearLayout style="@style/CategoryFieldsLayout">
+                <TextView
+                    android:id="@+id/display_product_supplier"
+                    style="@style/EditorFieldStyle"
+                    tools:text="notebook@supplier.com" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View style="@style/EmptyDivider"/>
+
+        <LinearLayout
+            android:id="@+id/container_product_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/CategoryStyle"
+                android:text="@string/category_product_image" />
+
+            <LinearLayout style="@style/CategoryFieldsLayout">
+                <ImageView
+                    android:id="@+id/display_product_image"
+                    style="@style/DisplayProductImage"
+                    tools:src="@drawable/ic_empty_products">
+                </ImageView>
+            </LinearLayout>
+        </LinearLayout>
+
+        <View style="@style/EmptyDivider"/>
+
+        <LinearLayout
+            android:id="@+id/container_product_buttons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/CategoryStyle"
+                android:text="@string/change_quantity" />
+
+            <LinearLayout style="@style/CategoryFieldsLayout">
+                <Button
+                    android:id="@+id/track_sale_button"
+                    style="@style/ProductDetailButtons"
+                    android:text="@string/track_sale"/>
+
+                <Button
+                    android:id="@+id/receive_shipment_button"
+                    style="@style/ProductDetailButtons"
+                    android:text="@string/receive_shipment"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <View style="@style/EmptyDivider"/>
+
+        <LinearLayout
+            android:id="@+id/container_product_other"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/CategoryStyle"
+                android:text="@string/other_actions" />
+
+            <LinearLayout style="@style/CategoryFieldsLayout">
+                <Button
+                    android:id="@+id/order_from_supplier_button"
+                    style="@style/ProductDetailButtons"
+                    android:text="@string/order_from_supplier"/>
+
+                <Button
+                    android:id="@+id/delete_product_button"
+                    style="@style/ProductDetailButtons"
+                    android:text="@string/delete_product"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

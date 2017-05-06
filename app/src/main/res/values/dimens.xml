@@ -1,0 +1,11 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="activity_margin">16dp</dimen>
+    <dimen name="product_image_vertical">100dp</dimen>
+    <dimen name="product_image_horizontal">133dp</dimen>
+    <dimen name="empty_inventory_title_padding">16dp</dimen>
+    <dimen name="empty_inventory_subtitle_padding">8dp</dimen>
+    <dimen name="add_product_category_weight">0dp</dimen>
+    <dimen name="add_product_category_padding">4dp</dimen>
+    <dimen name="detail_category_divider">15dp</dimen>
+</resources>
